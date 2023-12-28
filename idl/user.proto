@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "user";
+
+message User {
+  int64 id = 1; // user id
+  string name = 2; // user name
+  int64 follow_count = 3; // total number of people the user follows
+  int64 follower_count = 4; // total number of fans
+  bool is_follow = 5; // whether the currently logged-in user follows this user
+  string avatar = 6; // user avatar URL
+  string background_image = 7; // image at the top of the user's personal page
+  string signature = 8; // user profile
+  int64 total_favorited = 9; // number of likes for videos published by user
+  int64 work_count = 10; // number of videos published by user
+  int64 favorite_count = 11; // number of likes by this user
+}
+
+message DouyinUserRegisterRequest {
+  string username = 1; // registered user name
+  string password = 2;
+}
+
+message DouyinUserRegisterResponse {
+  int32 status_code = 1;
+  string status_msg = 2;
+  int64 user_id = 3; // user id
+  string token = 4; // user authentication token
+}
+
+message DouyinUserLoginRequest {
+  string username = 1; // Login Username
+  string password = 2; // login password
+}
+
+message DouyinUserLoginResponse {
+  int32 status_code = 1;
+  string status_msg = 2;
+  int64 user_id = 3;
+  string token = 4;
+}
+
+message DouyinUserRequest {
+  int64 user_id = 1;
+  string token = 2;
+}
+
+message DouyinUserResponse {
+  int32 status_code = 1;
+  string status_msg = 2;
+  User user = 3; // User Info
+}
+
+service UserHandler {
+  rpc User(DouyinUserRequest) returns(DouyinUserResponse) {
+  }
+
+  rpc UserRegister(DouyinUserRegisterRequest) returns(DouyinUserRegisterResponse) {
+    // When a new user registers, just provide a user name, password, and nickname, and the user name needs to be unique.
+    // After successful creation, return the user id and permission token.
+  }
+
+  rpc UserLogin(DouyinUserLoginRequest) returns(DouyinUserLoginResponse) {
+    // Log in with username and password, and return user id and permission token after successful login.
+  }
+}

@@ -1,0 +1,8 @@
+Engine:
+  WithHostPorts: 0.0.0.0:8000
+  WithStreamBody: true
+  registry:
+    serviceName: userservice
+    addr: "127.0.0.1:8000"
+    weight: 10
+    tags: []
