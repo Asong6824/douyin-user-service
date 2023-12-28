@@ -1,17 +1,13 @@
 package setting
 
+import (
+)
+
 type EngineSetting struct {
-	WithHostPorts  string
-	WithStreamBody bool
-	Registry       RegistryConfig
+	HostPort    string
+	ServiceName string
 }
 
-type RegistryConfig struct {
-    ServiceName string
-    Addr        string
-    Weight      int
-    Tags        map[string]string
-}
 
 func (s *Setting) ReadSection(k string, v interface{}) error {
 	err := s.vp.UnmarshalKey(k, v)

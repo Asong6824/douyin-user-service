@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/Asong6824/douyin-micro-gateway/pkg/setting"
+	"github.com/Asong6824/douyin-user-service/package/setting"
 )
 
 var (
