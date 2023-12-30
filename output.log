@@ -1,2 +1,13 @@
 2023/12/28 07:02:00.646016 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
 2023/12/28 10:54:27.826456 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/29 05:18:52.072809 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/30 05:07:32.574112 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/30 10:39:00.185603 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/30 10:40:10.820622 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:46338, error=biz error: Error 1054: Unknown column 'is_follow' in 'field list'
+2023/12/30 10:43:46.955815 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/30 10:43:51.048103 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:55866, error=biz error: Error 1054: Unknown column 'favorited_count' in 'field list'
+2023/12/30 10:44:44.783364 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/30 10:44:49.653228 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:47780, error=biz error: Error 1054: Unknown column 'favorited_count' in 'field list'
+2023/12/30 10:45:02.311390 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/30 10:45:08.804468 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:43208, error=biz error: Error 1264: Out of range value for column 'id' at row 1
+2023/12/30 10:50:03.751101 server.go:83: [Info] KITEX: server listen at addr=[::]:8001

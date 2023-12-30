@@ -14,6 +14,8 @@ import (
 	"github.com/cloudwego/kitex/pkg/klog"
 	"github.com/Asong6824/douyin-user-service/global"
 	"github.com/Asong6824/douyin-user-service/package/setting"
+	"github.com/Asong6824/douyin-user-service/internal/model"
+	"github.com/Asong6824/douyin-user-service/internal/cache"
 	"log"
 )
 
@@ -23,6 +25,14 @@ func Init() {
 		panic(err)
 	}
 	err = setupLogger()
+	if err != nil {
+		panic(err)
+	}
+	err = setupDatabase()
+	if err != nil {
+		panic(err)
+	}
+	err = setupCache()
 	if err != nil {
 		panic(err)
 	}
@@ -57,7 +67,7 @@ func main() {
         panic(err)
     }
     svr := user.NewServer(
-		new(UserServiceImpl),
+		NewUserServiceImpl(),
 		server.WithRegistry(registry.NewNacosRegistry(cli)),
 		server.WithServerBasicInfo(&rpcinfo.EndpointBasicInfo{ServiceName: global.EngineSetting.ServiceName}),
 		server.WithServiceAddr(addr),
@@ -79,6 +89,14 @@ func setupSetting() error {
 	if err != nil {
 		return err
 	}
+	err = setting.ReadSection("Database", &global.DatabaseSetting)
+	if err != nil {
+        return err
+    }
+	err = setting.ReadSection("Cache", &global.CacheSetting)
+	if err != nil {
+        return err
+    }
 	return nil
 }
 
@@ -89,5 +107,23 @@ func setupLogger() error {
     }
     fileWriter := io.MultiWriter(f,os.Stdout)
     klog.SetOutput(fileWriter)
+	return nil
+}
+
+func setupDatabase() error {
+	var err error
+	global.DBEngine, err = model.NewDBEngine(global.DatabaseSetting)
+	if err != nil {
+        return err
+    }
+	return nil
+}
+
+func setupCache() error {
+	var err error
+	global.Cache, err = cache.NewCache(global.CacheSetting)
+	if err != nil {
+        return err
+    }
 	return nil
 }

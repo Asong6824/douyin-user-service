@@ -5,5 +5,7 @@ import (
 )
 
 var (
-	EngineSetting *setting.EngineSetting
+	EngineSetting   *setting.EngineSetting
+	DatabaseSetting *setting.DatabaseSetting
+	CacheSetting    *setting.CacheSetting
 )

@@ -1,3 +1,21 @@
 Engine:
   HostPort: 0.0.0.0:8001
   ServiceName: user-service
+Database:
+  DBType: mysql
+  Username: root
+  Password: 123456
+  Host: 127.0.0.1
+  DBName: douyin
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+
+Cache:
+  Host: 127.0.0.1:6379
+  Password: ""
+  DB: 0
+  MaxIdleConns: 10
+  MaxActiveConns: 100
+  IdleTimeout: 180
