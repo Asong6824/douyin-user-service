@@ -11,3 +11,9 @@
 2023/12/30 10:45:02.311390 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
 2023/12/30 10:45:08.804468 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:43208, error=biz error: Error 1264: Out of range value for column 'id' at row 1
 2023/12/30 10:50:03.751101 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/31 06:32:41.078614 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/31 08:27:43.867156 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/31 08:37:41.163032 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:58504, error=biz error: Error 1146: Table 'douyin.users' doesn't exist
+2023/12/31 08:38:12.290884 server.go:83: [Info] KITEX: server listen at addr=[::]:8001
+2023/12/31 08:38:50.550181 default_server_handler.go:242: [Error] KITEX: processing request error, remoteService=gateway, remoteAddr=172.17.0.3:54152, error=biz error: Error 1054: Unknown column 'user_name' in 'where clause'
+2023/12/31 08:39:41.952053 server.go:83: [Info] KITEX: server listen at addr=[::]:8001

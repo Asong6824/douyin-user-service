@@ -32,7 +32,7 @@ func ConvertErr(err error) ErrNo {
 	if errors.As(err, &Err) {
 		return Err
 	}
-	s := ServiceErr
+	s := UserServiceErr
 	s.ErrMsg = err.Error()
 	return s
 }

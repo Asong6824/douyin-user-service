@@ -41,23 +41,20 @@ func (u User) Register(db *gorm.DB) error {
 	return nil
 }
 
-// func (u User) Login(db *gorm.DB) (int64, error) {
-// 	var user User
+func (u User) Login(db *gorm.DB) (int64, error) {
+	var user User
 
-// 	// 使用 GORM 的 Where 方法查询数据库中的记录
-// 	result := db.Table("users").
-// 		Where("user_name = ? AND password = ?", u.UserName, u.Password).
-// 		First(&user)
+	// 使用 GORM 的 Where 方法查询数据库中的记录
+	result := db.Table("user").
+		Where("name = ? AND password = ?", u.Name, u.Password).
+		First(&user)
 
-// 	if result.Error != nil {
-// 		if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-// 			return 0, result.Error
-// 		}
-// 		return 0, result.Error
-// 	}
+	if result.Error != nil {
+		return 0, result.Error
+	}
 
-// 	return user.UserID, nil
-// }
+	return user.Id, nil
+}
 
 // func (u User) GetUser(db *gorm.DB) (*User, error) {
 // 	var user User

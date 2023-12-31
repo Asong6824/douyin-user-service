@@ -33,14 +33,22 @@ func (s *UserServiceImpl) Register(ctx context.Context, req *user.RegisterReques
 		return resp, err
 	}
 	resp.UserId = id
-	resp.Token = "1"
 	return resp, nil
 }
 
 // Login implements the UserServiceImpl interface.
 func (s *UserServiceImpl) Login(ctx context.Context, req *user.LoginRequest) (resp *user.LoginResponse, err error) {
-	// TODO: Your code here...
-	return
+	resp = user.NewLoginResponse()
+	base := user.NewBaseResp()
+	id, err := s.dao.Login(req.Username, req.Password)
+	if err != nil {
+		errInformation := errno.ConvertErr(err)
+		base.Code = errInformation.ErrCode
+		base.Msg = errInformation.ErrMsg
+		return resp, err
+	}
+	resp.UserId = id
+	return resp, nil
 }
 
 // Info implements the UserServiceImpl interface.

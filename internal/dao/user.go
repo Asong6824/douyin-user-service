@@ -27,13 +27,13 @@ func (d *Dao) Register(username string, password string) (int64, error) {
 	return id, nil
 }
 
-// func (d *Dao) Login(username string, password string) (uint32, error) {
-// 	user := model.User{
-// 		UserName: username,
-// 		Password: password,
-// 	}
-// 	return user.Login(d.engine)
-// }
+func (d *Dao) Login(username string, password string) (int64, error) {
+	user := model.User{
+		Name: username,
+		Password: password,
+	}
+	return user.Login(d.engine)
+}
 
 // func (d *Dao) GetUser(userid uint32) (*model.User, error) {
 // 	user := model.User{

@@ -2,10 +2,9 @@ namespace go user
 
 enum ErrCode {
     SuccessCode                = 0
-    ServiceErrCode             = 10001
-    ParamErrCode               = 10002
-    UserAlreadyExistErrCode    = 10003
-    AuthorizationFailedErrCode = 10004
+    UserServiceErrCode         = 20001
+    UserAlreadyExistErrCode    = 20002
+    UserNotExistErrcode        = 20003
 }
 
 struct BaseResp {
@@ -35,7 +34,6 @@ struct RegisterRequest {
 struct RegisterResponse {
     1: BaseResp base,
     2: i64 user_id,
-    3: string token,
 }
 
 struct LoginRequest {
@@ -45,13 +43,11 @@ struct LoginRequest {
 
 struct LoginResponse {
     1: BaseResp base,
-    2: User user,
-    3: string token,
+    2: i64 user_id,
 }
 
 struct InfoRequest {
     1: i64 user_id,
-    2: string token,
 }
 
 struct InfoResponse {

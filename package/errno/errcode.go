@@ -6,8 +6,7 @@ import (
 
 var (
 	Success                = NewErrNo(int64(user.ErrCode_SuccessCode), "Success")
-	ServiceErr             = NewErrNo(int64(user.ErrCode_ServiceErrCode), "Service is unable to start successfully")
-	ParamErr               = NewErrNo(int64(user.ErrCode_ParamErrCode), "Wrong Parameter has been given")
+	UserServiceErr             = NewErrNo(int64(user.ErrCode_UserServiceErrCode), "User Service is unable to start successfully")
 	UserAlreadyExistErr    = NewErrNo(int64(user.ErrCode_UserAlreadyExistErrCode), "User already exists")
-	AuthorizationFailedErr = NewErrNo(int64(user.ErrCode_AuthorizationFailedErrCode), "Authorization failed")
+	UserNotExistErr        = NewErrNo(int64(user.ErrCode_UserNotExistErrcode), "User does not exist")
 )
